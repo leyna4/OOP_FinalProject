@@ -3,6 +3,8 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHealth = 3;
+    [SerializeField] private int scoreValue = 10;
+
     private int currentHealth;
 
     private void Awake()
@@ -22,6 +24,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        GameManager.Instance.AddScore(scoreValue);
         gameObject.SetActive(false);
     }
 }
